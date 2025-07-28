@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --cor-destaque: #ED145B;
-    --cor-gradiente-preto: linear-gradient(113deg, #000 0%, #1E2021 44.96%, #1E2022 100%);
+    --cor-destaque: #00FFFF; /* Ciano elétrico - tom futurista */
+    --cor-destaque-secundaria: #FF00FF; /* Magenta vibrante para um toque extra */
+    --cor-fundo-principal: #0A0A2A; /* Azul marinho muito escuro */
+    --cor-fundo-gradiente: linear-gradient(113deg, #0A0A2A 0%, #1A0F3A 44.96%, #2C1A5C 100%); /* Gradiente de azul escuro para roxo */
+    --cor-texto-claro: #E0E0E0; /* Cinza bem claro para texto */
+    --cor-texto-neutro: #A0A0A0; /* Cinza médio para placeholders e textos secundários */
 }
 
 * {
     margin: 0;
     padding: 0;
     font-family: Montserrat;
+    box-sizing: border-box; /* Adicionado para melhor controle de layout */
 }
 
 body {
@@ -16,11 +21,11 @@ body {
     justify-content: center;
     align-items: center;
     padding: 16px 21px 18px 21px;
-    background: var(--cor-gradiente-preto);
+    background: var(--cor-fundo-gradiente); /* Usando o novo gradiente futurista */
     height: 100vh;
     flex-direction: column;
+    color: var(--cor-texto-claro); /* Definindo cor de texto padrão */
 }
-
 
 .container {
     display: flex;
@@ -29,14 +34,16 @@ body {
     align-items: center;
     gap: 3rem;
     overflow: hidden;
+    max-width: 90%; /* Ajuste para melhor responsividade em telas menores */
 }
 
 h1 {
-    color: var(--cor-destaque);
+    color: var(--cor-destaque); /* Título em ciano elétrico */
     text-align: center;
     font-size: 2.8rem;
     font-weight: 600;
     text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Efeito neon sutil */
 }
 
 #entrada-de-texto {
@@ -47,12 +54,15 @@ h1 {
     gap: 0.625rem;
     align-self: stretch;
     border-radius: 0.625rem;
-    background: #FFF;
+    background: #FFF; /* Mantido branco para contraste, ou pode ser um cinza muito claro */
     font-size: 2rem;
+    color: #333; /* Cor do texto digitado */
+    border: 2px solid var(--cor-destaque); /* Borda com a cor de destaque */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4); /* Sombra futurista */
 }
 
 #entrada-de-texto::placeholder {
-    color: #828282;
+    color: var(--cor-texto-neutro); /* Placeholder em cinza médio */
     font-size: 2rem;
     font-weight: 400;
     line-height: normal;
@@ -66,22 +76,35 @@ h1 {
     gap: 0.625rem;
     border-radius: 0.5rem;
     border: none;
-    background: var(--cor-destaque);
-    color: #000;
+    background: var(--cor-destaque-secundaria); /* Botão em magenta vibrante */
+    color: #FFF; /* Texto do botão branco */
     font-size: 2.5rem;
     font-weight: 500;
     line-height: normal;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transição para interatividade */
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.6); /* Sombra neon */
+}
+
+#botao-palavrachave:hover {
+    background: var(--cor-destaque); /* Muda para ciano no hover */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8); /* Sombra mais intensa no hover */
 }
 
 #resultado-palavrachave {
     display: flex;
     border-radius: 0.625rem;
     align-self: stretch;
-    color: var(--cor-destaque);
+    color: var(--cor-destaque); /* Resultado em ciano */
     font-size: 2.5rem;
     justify-content: center;
     margin-bottom: 2rem;
     max-width: 100%;
     max-height: 50vh;
     overflow: auto;
+    background: rgba(255, 255, 255, 0.05); /* Um fundo levemente translúcido */
+    padding: 1rem;
+    border: 1px solid var(--cor-destaque); /* Borda com a cor de destaque */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4); /* Sombra futurista */
 }
